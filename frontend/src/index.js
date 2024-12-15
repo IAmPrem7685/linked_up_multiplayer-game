@@ -1,21 +1,20 @@
 import Phaser from 'phaser';
-import skyImage from '../assets/sky.jpg';
-
-// if (window.game) {
-//     window.game.destroy(true);
-// }
-// window.game = new Phaser.Game(config);
+// import skyImage from '../assets/sky.jpg';
+import GameScene from './scenes/GameScene';
 
 const config = {
     type: Phaser.AUTO,
     width: 800,
-    height: 600,
+    height: 580,
     parent: 'game-container',
-    scene: {
-        preload,
-        create,
-        update
-    }
+    scene: [GameScene],
+    physics: {
+        default: 'matter',
+        matter: {
+            debug: true, // Enable debugging visuals
+            gravity: { y: 1 } // Set gravity
+        }
+    },
     
 };
 if (window.game) {
@@ -25,13 +24,13 @@ if (window.game) {
 // Create a new Phaser game instance
 window.game = new Phaser.Game(config);
 
-function preload() {
-    this.load.image('sky', skyImage);
-}
+// function preload() {
+//     this.load.image('sky', skyImage);
+// }
 
-function create() {
-    this.add.image(400, 300, 'sky');
-}
+// function create() {
+//     this.add.image(400, 300, 'sky');
+// }
 
-function update() { }
+// function update() { }
 
